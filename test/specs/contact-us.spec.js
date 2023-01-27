@@ -8,7 +8,7 @@ describe('webdriveruniversity - contact us page', () => {
         console.log(`>>Browser Object: ${JSON.stringify(browser)}`);
     });
 
-    it('valid submission - submit all information', async () => { 
+    it('Valid submission - submit all information', async () => { 
         
         const firstName = await $('//*[@name="first_name"]');
         await firstName.setValue("Bugs");
@@ -29,7 +29,7 @@ describe('webdriveruniversity - contact us page', () => {
         await expect(successfulSubmissionHeader).toHaveText('Thank You for your Message!');       
     });
     
-    it('invalid submission - dont submit all information', async() => {       
+    it('Invalid submission - dont submit all information', async() => {       
         
         const firstName = await $('//*[@name="first_name"]');
         await firstName.setValue("Bugs");
@@ -47,7 +47,7 @@ describe('webdriveruniversity - contact us page', () => {
         await submitBtn.click();
        
         const successfulSubmissionHeader = $('body');
-        await expect(successfulSubmissionHeader).toHaveTextContaining(['Error: Invalid email address'], ['Error: all fields are required']); 
+        await expect(successfulSubmissionHeader).toHaveTextContaining(['Error: Invalid email address'], ['Error: all fields are requires']); 
     }); 
 
 });
