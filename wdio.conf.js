@@ -25,7 +25,9 @@ export const config = {
     specs: [
         //'./test/specs/**/*.js' 
         //'./test/specs/**/*async-example.spec.js'         // ToDo: define location for spec files here
-        './test/specs/**/*locating-elements.spec.js'
+        //'./test/specs/**/*locating-elements.spec.js'
+        './test/specs/**/*wait-commands.spec.js'
+
     ],
     // Patterns to exclude.
     exclude: [
