@@ -11,6 +11,7 @@ describe('wait commands - examples', () => {
         await clickMe_Button.click();
         await browser.pause(2500);  
         
+        
     });
     
 });
