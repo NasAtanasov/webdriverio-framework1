@@ -26,7 +26,10 @@ describe('webdriveruniversity - contact us page', () => {
         await submitBtn.click();
        
         const successfulSubmissionHeader = $('#contact_reply > h1');
-        await expect(successfulSubmissionHeader).toHaveText('Thank You for your Message!');       
+        await expect(successfulSubmissionHeader).toHaveText('Thank You for your Message!');  //wdio before: function (capabilities, specs) {require('expect-webdriverio').setOptions({wait: 10000, interval: 500});
+                
+        // const successfulSubmissionHeader2 = await $('#contact_reply > h1').getText();        //Jest do not have timeout
+        // expect(successfulSubmissionHeader2).toEqual('Thank You for your Message!555');    
     });
     
     it('Invalid submission - dont submit all information', async() => {       

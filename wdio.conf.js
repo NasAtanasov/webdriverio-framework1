@@ -23,10 +23,12 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        //'./test/specs/**/*.js' 
+        //'./test/specs/**/*.js'         
         //'./test/specs/**/*async-example.spec.js'         // ToDo: define location for spec files here
+        './test/specs/**/*contact-us.spec.js'
         //'./test/specs/**/*locating-elements.spec.js'
-        './test/specs/**/*wait-commands.spec.js'
+        //'./test/specs/**/*wait-commands.spec.js'
+
 
     ],
     // Patterns to exclude.
@@ -201,8 +203,9 @@ export const config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        require('expect-webdriverio').setOptions({wait: 10000, interval: 500});
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

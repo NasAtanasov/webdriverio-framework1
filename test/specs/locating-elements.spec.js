@@ -14,7 +14,7 @@ describe('locating elements', () => {
         await browser.pause(3000);
     });
 
-    it.only('$$ - locate elements', async() => {
+    it('$$ - locate elements', async() => {
         const expectedTitles = [
             "#",
             "First",
