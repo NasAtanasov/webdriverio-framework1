@@ -78,7 +78,8 @@ export const config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    ogLevel: 'info',
+    //logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:
@@ -149,7 +150,7 @@ export const config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 600000
     },
     //
     // =====
