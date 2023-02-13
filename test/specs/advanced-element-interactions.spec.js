@@ -31,4 +31,21 @@ describe('advanced element interactions - examples', () => {
         //await browser.pause(3000);  
     });
 
+    it.only('dropdowns', async() => {
+        await browser.url("/Dropdown-Checkboxes-RadioButtons/index.html");    
+        const programmingLanguage_dropDwonList = await $('#dropdowm-menu-1');
+        await programmingLanguage_dropDwonList.selectByAttribute('value','python');
+        await expect(programmingLanguage_dropDwonList).toHaveValueContaining('python');        
+        
+        const tech_dropDwonList = await $('#dropdowm-menu-2');
+        await tech_dropDwonList.selectByIndex(2);
+        await expect(tech_dropDwonList).toHaveValueContaining('TestNG', {ignoreCase: true});     
+
+        const fronendLanguage_dropDwonList = await $('#dropdowm-menu-3');
+        await fronendLanguage_dropDwonList.selectByVisibleText('CSS');
+        await expect(fronendLanguage_dropDwonList).toHaveValueContaining('CSS', {ignoreCase: true});
+        await browser.pause(3000);
+        
+    });
+
 });
