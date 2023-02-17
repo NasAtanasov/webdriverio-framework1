@@ -31,7 +31,7 @@ describe('advanced element interactions - examples', () => {
         //await browser.pause(3000);  
     });
 
-    it.only('dropdowns', async() => {
+    it('dropdowns', async() => {
         await browser.url("/Dropdown-Checkboxes-RadioButtons/index.html");    
         const programmingLanguage_dropDwonList = await $('#dropdowm-menu-1');
         await programmingLanguage_dropDwonList.selectByAttribute('value','python');
@@ -46,6 +46,47 @@ describe('advanced element interactions - examples', () => {
         await expect(fronendLanguage_dropDwonList).toHaveValueContaining('CSS', {ignoreCase: true});
         await browser.pause(3000);
         
+    });
+    it('state commands', async() => {
+        await browser.url('/Dropdown-Checkboxes-RadioButtons/index.html');
+
+        const lettuceRadioButton = await $('[value="lettuce"]');
+        const lettuceRadioButton_isDisplayed = await lettuceRadioButton.isDisplayed();
+        await expect(lettuceRadioButton_isDisplayed).toEqual(true);
+        await expect(lettuceRadioButton).toBeEnabled();
+
+        const lettuceRadioButton_isClickable = await lettuceRadioButton.isClickable();
+        await expect (lettuceRadioButton_isClickable).toEqual(true);
+
+        const cabbageRadioButton = await $('[value="cabbage"]');
+        const cabbageRadioButton_isEnable = await cabbageRadioButton.isEnabled();
+        await expect (cabbageRadioButton_isEnable).toEqual(false);
+        await expect (cabbageRadioButton).toBeDisabled();
+    });
+
+    it.only('actions', async() => {
+        await browser.url('/Actions/index.html#');
+
+        //Drag & Drop
+        const elem = await $('#draggable');
+        const target = await $('#droppable');
+        await elem.dragAndDrop(target);
+        await browser.pause(1000);
+
+        //Double Click double-click
+        const doubleClick_Button = await $('#double-click');
+        const doubleClick_Button2 = await $('#double-click');
+        await doubleClick_Button.doubleClick();
+        await browser.pause(1000);
+        await doubleClick_Button2.doubleClick();
+        await browser.pause(1000);
+
+        //Mouse Over 
+        await $("//button[text()='Hover Over Me First!']").moveTo();
+        const firstLink = await $('(//*[text()="Link 1"])[1]');
+        await firstLink.waitForClickable();
+        await firstLink.click();
+        await browser.pause(1000);
     });
 
 });
