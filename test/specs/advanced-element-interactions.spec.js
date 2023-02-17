@@ -64,7 +64,7 @@ describe('advanced element interactions - examples', () => {
         await expect (cabbageRadioButton).toBeDisabled();
     });
 
-    it.only('actions', async() => {
+    it('actions', async() => {
         await browser.url('/Actions/index.html#');
 
         //Drag & Drop
@@ -87,6 +87,35 @@ describe('advanced element interactions - examples', () => {
         await firstLink.waitForClickable();
         await firstLink.click();
         await browser.pause(1000);
+    });
+
+    it('handling windows', async() => {
+        await browser.url('https://www.webdriveruniversity.com/index.html');
+        await browser.newWindow('https://automationteststore.com/');
+
+        let currentWindow_Title = await browser.getTitle();
+        console.log(`>>Current Window Title: ${currentWindow_Title}`);
+        await expect(browser).toHaveUrlContaining('automationteststore');       
+
+        await browser.switchWindow('webdriveruniversity.com');
+        let parrentWindow_Title = await browser.getTitle();
+        console.log(`>>Parrent Window Title: ${parrentWindow_Title}`);
+        await expect(browser).toHaveUrlContaining('webdriveruniversity.com');       
+       
+        //await browser.url('/');   // "/" = "https://www.webdriveruniversity.com/index.html" wdio.conf.js
+
+        await $('#contact-us').click(); 
+        await browser.switchWindow('automationteststore');
+        await browser.closeWindow();
+
+        await browser.switchWindow('contactus');
+        await browser.closeWindow();
+
+        await browser.switchWindow('webdriveruni');
+        console.log(await browser.getTitle());
+        //await browser.pause(2000);
+
+
     });
 
 });
