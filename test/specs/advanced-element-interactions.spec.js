@@ -102,7 +102,7 @@ describe('advanced element interactions - examples', () => {
         console.log(`>>Parrent Window Title: ${parrentWindow_Title}`);
         await expect(browser).toHaveUrlContaining('webdriveruniversity.com');       
        
-        //await browser.url('/');   // "/" = "https://www.webdriveruniversity.com/index.html" wdio.conf.js
+        //await browser.url('/');   "/" = "https://www.webdriveruniversity.com/index.html" wdio.conf.js
 
         await $('#contact-us').click(); 
         await browser.switchWindow('automationteststore');
@@ -114,8 +114,41 @@ describe('advanced element interactions - examples', () => {
         await browser.switchWindow('webdriveruni');
         console.log(await browser.getTitle());
         //await browser.pause(2000);
+    });
 
+    it('IFrames', async() => {
+        await browser.url("/IFrame/index.html");        
+        const iframe = await $('#frame');        
+        await browser.switchToFrame(iframe);        
+        await $("//a[text()='Our Products']").click();
+        //await browser.pause(5000);
+        await browser.switchToParentFrame();        
+        //await browser.pause(5000);
+    });
 
+    it('Alerts', async() => {
+        await browser.url("/Popup-Alerts/index.html");
+        const buttonJavaScriptAlert = await $("#button1");        
+        await buttonJavaScriptAlert.click();                
+        await browser.acceptAlert();
+
+        const buttonJavaScriptConfirmBox = await $("#button4");
+        await buttonJavaScriptConfirmBox.click();  
+        const alertText = await browser.getAlertText();     
+        await expect(alertText).toEqual('Press a button!');
+
+        await browser.acceptAlert();
+        await expect($('#confirm-alert-text')).toHaveText('You pressed OK!');
+
+        await buttonJavaScriptConfirmBox.click();
+        await browser.dismissAlert();
+        await expect($('#confirm-alert-text')).toHaveText('You pressed Cancel!');
+
+        await browser.pause(3000);
+    });
+
+    it('File Upload', async() => {
+        await browser.url("");
     });
 
 });
