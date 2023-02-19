@@ -148,7 +148,29 @@ describe('advanced element interactions - examples', () => {
     });
 
     it('File Upload', async() => {
-        await browser.url("");
+        await browser.url("/File-Upload/index.html");
+        const chooseFileButton = await $("#myFile");
+        await chooseFileButton.addValue(`${process.cwd()}\\data\\dummy_file.txt`);       
+
+        const submitButton = await $('#submit-button');
+        await submitButton.click();
+
+        const alerttext = await browser.getAlertText();
+        await expect(alerttext).toEqual("Your file has now been uploaded!");
+        await browser.acceptAlert();    
+        await browser.pause(3000);
+    });
+
+    it.only('Js Execute', async() => {
+        await browser.url("/Hidden-Elements/index.html");
+        await browser.execute(() =>{
+            return document.getElementById("not-displayed").setAttribute("id", "");
+        })
+
+        await browser.execute(() => {
+            return document.body.style.backgroundColor = "tomato";
+        })
+        await browser.pause(3000);        
     });
 
 });
