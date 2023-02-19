@@ -60,5 +60,4 @@ describe('webdriveruniversity - contact us page', () => {
         const successfulSubmissionHeader = $('body');
         await expect(successfulSubmissionHeader).toHaveTextContaining(['Error: Invalid email address'], ['Error: all fields are requires']); 
     }); 
-
 });
