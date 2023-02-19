@@ -23,12 +23,12 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        //'./test/specs/**/*.js'         
+        './test/specs/**/*.js'         
         //'./test/specs/**/*async-example.spec.js'         // ToDo: define location for spec files here
         //'./test/specs/**/*contact-us.spec.js'
         //'./test/specs/**/*locating-elements.spec.js'
         //'./test/specs/**/*wait-commands.spec.js'
-        './test/specs/**/*advanced-element-interactions.spec.js'
+        //'./test/specs/**/*advanced-element-interactions.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -140,9 +140,12 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
-
-
+    reporters: ['spec', ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: false,
+        disableWebdriverScreenshotsReporting: false,
+    }]],
+    
     
     //
     // Options to be passed to Mocha.

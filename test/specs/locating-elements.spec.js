@@ -23,11 +23,9 @@ describe('locating elements', () => {
             "1",
             "2",
             "3",
-            "Firstname",
-            "Firstname",
+            "Firstname",            
             "Lastname",
             "Age"
-
         ]
         const actualTitles = [];
         const tableHeaderTitles = await $$('//table//th');

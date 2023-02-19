@@ -8,7 +8,7 @@ describe('webdriveruniversity - contact us page', () => {
         console.log(`>>Browser Object: ${JSON.stringify(browser)}`);
     });
 
-    it.only('Valid submission - submit all information', async () => { 
+    it('Valid submission - submit all information', async () => { 
         
         const firstName = await $('//*[@name="first_name"]');
         await firstName.setValue("Bugs");
@@ -23,8 +23,7 @@ describe('webdriveruniversity - contact us page', () => {
         await comment.setValue("Hi there I'm Bugs Bunny\nWhat's up dog!"); 
         
         const submitButton = await $('//input[@value="SUBMIT"]');
-
-        await browser.debug();
+        
         await submitButton.click();
        
         const successfulSubmissionHeader = $('#contact_reply > h1');

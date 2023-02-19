@@ -161,7 +161,7 @@ describe('advanced element interactions - examples', () => {
         await browser.pause(3000);
     });
 
-    it.only('Js Execute', async() => {
+    it('Js Execute', async() => {
         await browser.url("/Hidden-Elements/index.html");
         await browser.execute(() =>{
             return document.getElementById("not-displayed").setAttribute("id", "");
@@ -172,5 +172,4 @@ describe('advanced element interactions - examples', () => {
         })
         await browser.pause(3000);        
     });
-
 });
