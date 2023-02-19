@@ -1,0 +1,39 @@
+{
+  "id": {
+    "sessionId": "213ef621b0ea2851a844231b97e84118",
+    "elementId": "d9099e2b-2375-4a40-9239-74946f5c6bbe",
+    "element-6066-11e4-a52e-4f735466cecf": "d9099e2b-2375-4a40-9239-74946f5c6bbe",
+    "selector": "#frame",
+    "parent": {
+      "sessionId": "213ef621b0ea2851a844231b97e84118",
+      "capabilities": {
+        "acceptInsecureCerts": true,
+        "browserName": "chrome",
+        "browserVersion": "109.0.5414.121",
+        "chrome": {
+          "chromedriverVersion": "109.0.5414.74 (e7c5703604daa9cc128ccf5a5d3e993513758913-refs/branch-heads/5414@{#1172})",
+          "userDataDir": "C:\\Users\\LoshL\\AppData\\Local\\Temp\\scoped_dir10788_740214854"
+        },
+        "goog:chromeOptions": {
+          "debuggerAddress": "localhost:59245"
+        },
+        "networkConnectionEnabled": false,
+        "pageLoadStrategy": "normal",
+        "platformName": "windows",
+        "proxy": {},
+        "setWindowRect": true,
+        "strictFileInteractability": false,
+        "timeouts": {
+          "implicit": 0,
+          "pageLoad": 300000,
+          "script": 30000
+        },
+        "unhandledPromptBehavior": "dismiss and notify",
+        "webauthn:extension:credBlob": true,
+        "webauthn:extension:largeBlob": true,
+        "webauthn:virtualAuthenticators": true
+      }
+    },
+    "isReactElement": false
+  }
+}

@@ -22,10 +22,12 @@ describe('webdriveruniversity - contact us page', () => {
         const comment = await $('//*[@name="message"]'); 
         await comment.setValue("Hi there I'm Bugs Bunny\nWhat's up dog!"); 
         
-        const submitBtn = await $('//input[@value="SUBMIT"]');
-        await submitBtn.click();
+        const submitButton = await $('//input[@value="SUBMIT"]');
+        
+        await submitButton.click();
        
         const successfulSubmissionHeader = $('#contact_reply > h1');
+        console.log(`successfulSubmissionHeader Element: `+ JSON.stringify(await successfulSubmissionHeader));
         await expect(successfulSubmissionHeader).toHaveText('Thank You for your Message!');  //wdio before: function (capabilities, specs) {require('expect-webdriverio').setOptions({wait: 10000, interval: 500});
                 
         // const successfulSubmissionHeader2 = await $('#contact_reply > h1').getText();        //Jest do not have timeout
