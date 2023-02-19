@@ -1,5 +1,0 @@
-{
-  "error": "no such element",
-  "message": "no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//input[@value=\"SUBMIT\"]\"}\n  (Session info: chrome=109.0.5414.121)",
-  "stacktrace": "Backtrace:\n\t(No symbol) [0x00856643]\n\t(No symbol) [0x007EBE21]\n\t(No symbol) [0x006EDA9D]\n\t(No symbol) [0x00721342]\n\t(No symbol) [0x0072147B]\n\t(No symbol) [0x00758DC2]\n\t(No symbol) [0x0073FDC4]\n\t(No symbol) [0x00756B09]\n\t(No symbol) [0x0073FB76]\n\t(No symbol) [0x007149C1]\n\t(No symbol) [0x00715E5D]\n\tGetHandleVerifier [0x00ACA142+2497106]\n\tGetHandleVerifier [0x00AF85D3+2686691]\n\tGetHandleVerifier [0x00AFBB9C+2700460]\n\tGetHandleVerifier [0x00903B10+635936]\n\t(No symbol) [0x007F4A1F]\n\t(No symbol) [0x007FA418]\n\t(No symbol) [0x007FA505]\n\t(No symbol) [0x0080508B]\n\tBaseThreadInitThunk [0x76157D69+25]\n\tRtlInitializeExceptionChain [0x7739BB9B+107]\n\tRtlClearBits [0x7739BB1F+191]\n"
-}
