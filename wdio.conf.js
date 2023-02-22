@@ -29,8 +29,9 @@ export const config = {
   specs: [
     //'./test/specs/**/*.js'
     //'./test/specs/**/*.spec.js'
+    './test/specs/**/*add-items-to-basket.spec.js'
     //'./test/specs/**/*async-example.spec.js'         // ToDo: define location for spec files here
-    "./test/specs/**/*contact-us.spec.js",
+    //"./test/specs/**/*contact-us.spec.js",
     //'./test/specs/**/*locating-elements.spec.js'
     //'./test/specs/**/*wait-commands.spec.js'
     //'./test/specs/**/*advanced-element-interactions.spec.js'

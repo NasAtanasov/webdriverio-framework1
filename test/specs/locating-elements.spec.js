@@ -1,9 +1,9 @@
 describe('locating elements', () => {
     beforeEach(async () =>{
         await browser.maximizeWindow();
-        await browser.url("https://selectors.webdriveruniversity.com/");   
+        await browser.url("https://selectors.webdriveruniversity.com/");
     })
-  
+
     it('$ - locate element', async() => {
         await browser.$("//a[@href='#portfolio']").click();
         await browser.pause(3000);
@@ -23,7 +23,7 @@ describe('locating elements', () => {
             "1",
             "2",
             "3",
-            "Firstname",            
+            "Firstname",
             "Lastname",
             "Age"
         ]
@@ -36,6 +36,6 @@ describe('locating elements', () => {
 
         expect(expectedTitles).toEqual(actualTitles);
 
-    });   
-        
+    });
+
 });

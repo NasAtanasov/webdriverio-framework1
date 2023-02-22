@@ -17,35 +17,35 @@ describe('advanced element interactions - examples', () => {
         await firstNameTextField.addValue("Add your text here ");
         await lastNameTextField.addValue("Last name text");
         await firstNameTextField.addValue("My added text");
-        //await browser.pause(3000);  
-        
+        //await browser.pause(3000);
+
         //Send a sequence of key strokes to an element (clears element before typing)
         //Keyword: clears before typing:
         //https://webdriver.io/docs/api/element/setValue
         await firstNameTextField.setValue("Hello, this is SET value ");
-        //await browser.pause(3000); 
-        
+        //await browser.pause(3000);
+
         //Clear a <textarea> or text <input> element's value:
         //https://webdriver.io/docs/api/element/clearValue
         await firstNameTextField.clearValue();
-        //await browser.pause(3000);  
+        //await browser.pause(3000);
     });
 
     it('dropdowns', async() => {
-        await browser.url("/Dropdown-Checkboxes-RadioButtons/index.html");    
+        await browser.url("/Dropdown-Checkboxes-RadioButtons/index.html");
         const programmingLanguage_dropDwonList = await $('#dropdowm-menu-1');
         await programmingLanguage_dropDwonList.selectByAttribute('value','python');
-        await expect(programmingLanguage_dropDwonList).toHaveValueContaining('python');        
-        
+        await expect(programmingLanguage_dropDwonList).toHaveValueContaining('python');
+
         const tech_dropDwonList = await $('#dropdowm-menu-2');
         await tech_dropDwonList.selectByIndex(2);
-        await expect(tech_dropDwonList).toHaveValueContaining('TestNG', {ignoreCase: true});     
+        await expect(tech_dropDwonList).toHaveValueContaining('TestNG', {ignoreCase: true});
 
         const fronendLanguage_dropDwonList = await $('#dropdowm-menu-3');
         await fronendLanguage_dropDwonList.selectByVisibleText('CSS');
         await expect(fronendLanguage_dropDwonList).toHaveValueContaining('CSS', {ignoreCase: true});
         await browser.pause(3000);
-        
+
     });
     it('state commands', async() => {
         await browser.url('/Dropdown-Checkboxes-RadioButtons/index.html');
@@ -81,7 +81,7 @@ describe('advanced element interactions - examples', () => {
         await doubleClick_Button2.doubleClick();
         await browser.pause(1000);
 
-        //Mouse Over 
+        //Mouse Over
         await $("//button[text()='Hover Over Me First!']").moveTo();
         const firstLink = await $('(//*[text()="Link 1"])[1]');
         await firstLink.waitForClickable();
@@ -95,16 +95,16 @@ describe('advanced element interactions - examples', () => {
 
         let currentWindow_Title = await browser.getTitle();
         console.log(`>>Current Window Title: ${currentWindow_Title}`);
-        await expect(browser).toHaveUrlContaining('automationteststore');       
+        await expect(browser).toHaveUrlContaining('automationteststore');
 
         await browser.switchWindow('webdriveruniversity.com');
         let parrentWindow_Title = await browser.getTitle();
         console.log(`>>Parrent Window Title: ${parrentWindow_Title}`);
-        await expect(browser).toHaveUrlContaining('webdriveruniversity.com');       
-       
+        await expect(browser).toHaveUrlContaining('webdriveruniversity.com');
+
         //await browser.url('/');   "/" = "https://www.webdriveruniversity.com/index.html" wdio.conf.js
 
-        await $('#contact-us').click(); 
+        await $('#contact-us').click();
         await browser.switchWindow('automationteststore');
         await browser.closeWindow();
 
@@ -117,24 +117,24 @@ describe('advanced element interactions - examples', () => {
     });
 
     it('IFrames', async() => {
-        await browser.url("/IFrame/index.html");        
-        const iframe = await $('#frame');        
-        await browser.switchToFrame(iframe);        
+        await browser.url("/IFrame/index.html");
+        const iframe = await $('#frame');
+        await browser.switchToFrame(iframe);
         await $("//a[text()='Our Products']").click();
         //await browser.pause(5000);
-        await browser.switchToParentFrame();        
+        await browser.switchToParentFrame();
         //await browser.pause(5000);
     });
 
     it('Alerts', async() => {
         await browser.url("/Popup-Alerts/index.html");
-        const buttonJavaScriptAlert = await $("#button1");        
-        await buttonJavaScriptAlert.click();                
+        const buttonJavaScriptAlert = await $("#button1");
+        await buttonJavaScriptAlert.click();
         await browser.acceptAlert();
 
         const buttonJavaScriptConfirmBox = await $("#button4");
-        await buttonJavaScriptConfirmBox.click();  
-        const alertText = await browser.getAlertText();     
+        await buttonJavaScriptConfirmBox.click();
+        const alertText = await browser.getAlertText();
         await expect(alertText).toEqual('Press a button!');
 
         await browser.acceptAlert();
@@ -150,14 +150,14 @@ describe('advanced element interactions - examples', () => {
     it('File Upload', async() => {
         await browser.url("/File-Upload/index.html");
         const chooseFileButton = await $("#myFile");
-        await chooseFileButton.addValue(`${process.cwd()}\\data\\dummy_file.txt`);       
+        await chooseFileButton.addValue(`${process.cwd()}\\data\\dummy_file.txt`);
 
         const submitButton = await $('#submit-button');
         await submitButton.click();
 
         const alerttext = await browser.getAlertText();
         await expect(alerttext).toEqual("Your file has now been uploaded!");
-        await browser.acceptAlert();    
+        await browser.acceptAlert();
         await browser.pause(3000);
     });
 
@@ -170,6 +170,6 @@ describe('advanced element interactions - examples', () => {
         await browser.execute(() => {
             return document.body.style.backgroundColor = "tomato";
         })
-        await browser.pause(3000);        
+        await browser.pause(3000);
     });
 });
