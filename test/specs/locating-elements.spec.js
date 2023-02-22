@@ -1,9 +1,9 @@
 describe('locating elements', () => {
     beforeEach(async () =>{
         await browser.maximizeWindow();
-        await browser.url("https://selectors.webdriveruniversity.com/");   
+        await browser.url("https://selectors.webdriveruniversity.com/");
     })
-  
+
     it('$ - locate element', async() => {
         await browser.$("//a[@href='#portfolio']").click();
         await browser.pause(3000);
@@ -14,7 +14,7 @@ describe('locating elements', () => {
         await browser.pause(3000);
     });
 
-    it.only('$$ - locate elements', async() => {
+    it('$$ - locate elements', async() => {
         const expectedTitles = [
             "#",
             "First",
@@ -24,10 +24,8 @@ describe('locating elements', () => {
             "2",
             "3",
             "Firstname",
-            "Firstname",
             "Lastname",
             "Age"
-
         ]
         const actualTitles = [];
         const tableHeaderTitles = await $$('//table//th');
@@ -38,6 +36,6 @@ describe('locating elements', () => {
 
         expect(expectedTitles).toEqual(actualTitles);
 
-    });   
-        
+    });
+
 });

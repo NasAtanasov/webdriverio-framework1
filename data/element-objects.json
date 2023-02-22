@@ -1,0 +1,31 @@
+{
+  "sessionId": "d405d95e3c2dead1b2957c40287a866e",
+  "elementId": "6fd75913-b1c7-4ba8-a061-c9a011d6018c",
+  "element-6066-11e4-a52e-4f735466cecf": "6fd75913-b1c7-4ba8-a061-c9a011d6018c",
+  "selector": "#contact_reply > h1",
+  "parent": {
+    "sessionId": "d405d95e3c2dead1b2957c40287a866e",
+    "capabilities": {
+      "acceptInsecureCerts": true,
+      "browserName": "chrome",
+      "browserVersion": "109.0.5414.120",
+      "chrome": {
+        "chromedriverVersion": "109.0.5414.74 (e7c5703604daa9cc128ccf5a5d3e993513758913-refs/branch-heads/5414@{#1172})",
+        "userDataDir": "C:\\Users\\NasA\\AppData\\Local\\Temp\\scoped_dir2592_1511390485"
+      },
+      "goog:chromeOptions": { "debuggerAddress": "localhost:51848" },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "windows",
+      "proxy": {},
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": { "implicit": 0, "pageLoad": 300000, "script": 30000 },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:extension:credBlob": true,
+      "webauthn:extension:largeBlob": true,
+      "webauthn:virtualAuthenticators": true
+    }
+  },
+  "isReactElement": false
+}
