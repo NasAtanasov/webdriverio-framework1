@@ -6,10 +6,10 @@ describe('wait commands - examples', () => {
 
     it('pause command', async() => {
         const clickMe_Button = await $("//*[text()='CLICK ME!']/..");
-        
+
         await browser.pause(5000);
         await clickMe_Button.click();
-        await browser.pause(2500); 
+        await browser.pause(2500);
     });
 
     it('waitForClickable', async() => {
@@ -44,5 +44,4 @@ describe('wait commands - examples', () => {
             timeoutMsg: 'expected text to be different after 15 seconds'
         })
     });
-    
 });
