@@ -8,7 +8,7 @@ describe('add items to basket', () => {
         await skincareLinks[1].click();
 
         const skincareProducts_Header_Links = await $$('.fixed_wrapper .prdocutname');
-        const itemPrices = [];
+        const itemPrices = []; //$220.00 $38.00
 
         for (const header of skincareProducts_Header_Links) {
             const tempHeaderText = await header.getText();
@@ -34,7 +34,25 @@ describe('add items to basket', () => {
                 )
 
             }
+            const formattedItemPrice = [];
+            itemPrices.forEach((price) => {
+                formattedItemPrice.push(price.replace("$",""));
+            });
+
+            var itemsTotal = 0;
+            formattedItemPrice.forEach(price => itemsTotal += parseFloat(price));
+            console.log("Item total: " + itemsTotal); //258
         }
+
+        await $("//span[text()='Cart']").click();
+        await expect(browser).toHaveUrlContaining("checkout");
+
+        // //span[text()='Flat Shipping Rate:']/../following-sibling::td
+        var tempShippingRate = await $("//span[text()='Flat Shipping Rate:']/../following-sibling::td").getText();
+        var shippingRate = tempShippingRate.replace('$', '');
+        itemsTotal = itemsTotal + parseFloat(shippingRate);
+        console.log("Item total + Shipping rate: " + itemsTotal); //260
+
         await browser.pause(5000);
     });
 });
