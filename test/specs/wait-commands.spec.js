@@ -1,7 +1,6 @@
 describe('wait commands - examples', () => {
     beforeEach(async() => {
-        await browser.maximizeWindow();
-        await browser.url("https://www.webdriveruniversity.com/Ajax-Loader/index.html");
+        await browser.url("/Ajax-Loader/index.html");
     });
 
     it('pause command', async() => {

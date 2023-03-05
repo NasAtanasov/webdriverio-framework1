@@ -1,9 +1,8 @@
 describe('add items to basket', () => {
-    beforeEach(async() => {
-        await browser.maximizeWindow();
-        await browser.url("https://automationteststore.com/");
-    });
+
     it("0. add specific 'skincare product' to basket & validate car total", async() => {
+        await browser.url("https://automationteststore.com/");
+
         const skincareLinks = await $$("//a[contains(text(), 'Skincare')]");
         await skincareLinks[1].click();
 

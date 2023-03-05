@@ -27,9 +27,9 @@ export const config = {
   // will be called from there.
   //
   specs: [
-    //'./test/specs/**/*.js'
+    './test/specs/**/*.js'
     //'./test/specs/**/*.spec.js'
-    './test/specs/**/*add-items-to-basket.spec.js'
+    //'./test/specs/**/*add-items-to-basket.spec.js'
     //'./test/specs/**/*async-example.spec.js'         // ToDo: define location for spec files here
     //"./test/specs/**/*contact-us.spec.js",
     //'./test/specs/**/*locating-elements.spec.js'
@@ -240,8 +240,9 @@ export const config = {
   /**
    * Function to be executed before a test (in Mocha/Jasmine) starts.
    */
-  // beforeTest: function (test, context) {
-  // },
+  beforeTest: async function (test, context) {
+    await browser.maximizeWindow();
+  },
   /**
    * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
    * beforeEach in Mocha)

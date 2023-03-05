@@ -1,9 +1,5 @@
 describe('advanced element interactions - examples', () => {
 
-    beforeEach(async function() {
-        await browser.maximizeWindow()
-    })
-
     it('inputs', async() => {
         await browser.url("/Contact-Us/contactus.html");
 
