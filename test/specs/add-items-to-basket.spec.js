@@ -53,6 +53,11 @@ describe('add items to basket', () => {
         itemsTotal = itemsTotal + parseFloat(shippingRate);
         console.log("Item total + Shipping rate: " + itemsTotal); //260
 
+        //extract cart total
+        var cartTotal = await $("//span[text()='Total:']/../following-sibling::td").getText();
+        cartTotal = cartTotal.replace("$", "");
+        expect (itemsTotal).toEqual(parseFloat(cartTotal));
+
         await browser.pause(5000);
     });
 });
