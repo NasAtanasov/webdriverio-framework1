@@ -1,6 +1,7 @@
 // wdio.conf.js
 const allure = require("allure-commandline");
 import fs from "fs";
+const commands = require('./utils/commands.js');
 
 export const config = {
   //
@@ -27,11 +28,11 @@ export const config = {
   // will be called from there.
   //
   specs: [
-    './test/specs/**/*.js'
+    //'./test/specs/**/*.js'
     //'./test/specs/**/*.spec.js'
     //'./test/specs/**/*add-items-to-basket.spec.js'
     //'./test/specs/**/*async-example.spec.js'         // ToDo: define location for spec files here
-    //"./test/specs/**/*contact-us.spec.js",
+    "./test/specs/**/*contact-us.spec.js",
     //'./test/specs/**/*locating-elements.spec.js'
     //'./test/specs/**/*wait-commands.spec.js'
     //'./test/specs/**/*advanced-element-interactions.spec.js'
@@ -229,8 +230,11 @@ export const config = {
    * @param {String} commandName hook command name
    * @param {Array} args arguments that command would receive
    */
-  // beforeCommand: function (commandName, args) {
-  // },
+  beforeCommand: function (commandName, args) {
+    Object.keys(commands).forEach(key => {
+      browser.addCommand(key, commands[key]);
+    })
+  },
   /**
    * Hook that gets executed before the suite starts
    * @param {Object} suite suite details
