@@ -1,16 +1,17 @@
 
 import allureReporter from "@wdio/allure-reporter";
 
-describe('webdriveruniversity - contact us page', () => {
+describe('webdriveruniversity - contact us page', function() {  //"function()" is using for this.retries(1) instead of "async() =>"
+    //this.retries(1); // Retry all tests in this suite up to 1 times
 
     beforeEach(async() => {
-        await browser.maximizeWindow();
         // navigate to a new URL
         await browser.url('/Contact-Us/contactus.html')
         console.log(`>>Browser Object: ${JSON.stringify(browser)}`);
     });
 
-    it('Valid submission - submit all information', async () => {
+    it('Valid submission - submit all information', async function() {  //"function()" is using for this.retries(1) instead of "async() =>"
+        //this.retries(2);
         allureReporter.addFeature("Contact us Page - valid Submission");
         allureReporter.addDescription("Validate cotact us page by submitting all data");
         allureReporter.addSeverity("critical");
@@ -27,8 +28,9 @@ describe('webdriveruniversity - contact us page', () => {
         await comment.setValue("Hi there I'm Bugs Bunny\nWhat's up dog!");
 
         const submitButton = await $('//input[@value="SUBMIT"]');
-
-        await submitButton.click();
+        //await browser.debug();
+        //await submitButton.click();
+        await browser.waitThenClick(submitButton);
 
         const successfulSubmissionHeader = $('#contact_reply > h1');
         console.log(`successfulSubmissionHeader Element: `+ JSON.stringify(await successfulSubmissionHeader));
