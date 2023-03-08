@@ -1,16 +1,17 @@
 
 import allureReporter from "@wdio/allure-reporter";
+import ContactUsPage from "../pageObjects/webdriver-university/contact-us.page";
 
 describe('webdriveruniversity - contact us page', function() {  //"function()" is using for this.retries(1) instead of "async() =>"
     //this.retries(1); // Retry all tests in this suite up to 1 times
 
     beforeEach(async() => {
         // navigate to a new URL
-        await browser.url('/Contact-Us/contactus.html')
+        await ContactUsPage.open();
         console.log(`>>Browser Object: ${JSON.stringify(browser)}`);
     });
 
-    it('Valid submission - submit all information', async function() {  //"function()" is using for this.retries(1) instead of "async() =>"
+    it('00.Valid submission - submit all information', async function() {  //"function()" is using for this.retries(1) instead of "async() =>"
         //this.retries(2);
         allureReporter.addFeature("Contact us Page - valid Submission");
         allureReporter.addDescription("Validate cotact us page by submitting all data");
@@ -40,7 +41,7 @@ describe('webdriveruniversity - contact us page', function() {  //"function()" i
         // expect(successfulSubmissionHeader2).toEqual('Thank You for your Message!555');
     });
 
-    it('Invalid submission - dont submit all information', async() => {
+    it('01.Invalid submission - dont submit all information', async() => {
         allureReporter.addFeature("Contact us Page - invalid Submission");
         allureReporter.addDescription("Validate cotact us page by not submitting all data");
         allureReporter.addSeverity("normal");
