@@ -1,6 +1,6 @@
 
 import allureReporter from "@wdio/allure-reporter";
-import ContactUsPage from "../pageObjects/webdriver-university/contact-us.page";
+import ContactUsPage from  "../../pageObjects/webdriver-university/contact-us.page";
 
 describe('webdriveruniversity - contact us page', function() {  //"function()" is using for this.retries(1) instead of "async() =>"
     //this.retries(1); // Retry all tests in this suite up to 1 times
@@ -34,7 +34,7 @@ describe('webdriveruniversity - contact us page', function() {  //"function()" i
         await expect(ContactUsPage.unsuccessfulSubmissionHeader).toHaveTextContaining(['Error: Invalid email address'], ['Error: all fields are requires']);
     });
 
-    it('03.Only type a first name', async() => {
+    it('02.Only type a first name', async() => {
         ContactUsPage.submitForm("Bugs3", "", "", "");
         await expect(ContactUsPage.unsuccessfulSubmissionHeader).toHaveTextContaining(['Error: Invalid email address'], ['Error: all fields are requires']);
     });
