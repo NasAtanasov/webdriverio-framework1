@@ -1,4 +1,5 @@
 import HomePage from "../../pageObjects/automation-test-store/home.page";
+import SkinCarePage from "../../pageObjects/automation-test-store/skincare.page";
 
 describe('add items to basket', () => {
 
@@ -6,10 +7,8 @@ describe('add items to basket', () => {
         await HomePage.open();
 
         await HomePage.categoryMenuComponent.categoryMenuLink('Skincare')[1].click();
-
         
-
-        const skincareProducts_Header_Links = await $$('.fixed_wrapper .prdocutname');
+        const skincareProducts_Header_Links = await SkinCarePage.itemComponent.itemHeaderLinks;
         const itemPrices = []; //$220.00 $38.00
 
         for (const header of skincareProducts_Header_Links) {
