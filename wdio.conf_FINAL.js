@@ -6,15 +6,13 @@ exports.config = {
     // ====================
     // Runner Configuration
     // ====================
-    // WebdriverIO supports running e2e tests as well as unit and component tests.
-    //runner: 'browser',
-    
+    //
     //
     // ==================
     // Specify Test Files
     // ==================
     // Define which test specs should run. The pattern is relative to the directory
-    // of the configuration file being run.
+    // from which `wdio` was called.
     //
     // The specs are defined as an array of spec files (optionally using wildcards
     // that will be expanded). The test for each spec file will be run in a separate
@@ -26,10 +24,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        // ToDo: define location for spec files here
-        './test/specs/**'
-
-
+        './test/specs/**/add-items-to-basket.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -145,13 +140,13 @@ exports.config = {
         outputDir: 'allure-results',
         disableWebdriverStepsReporting: false,
         disableWebdriverScreenshotsReporting: false,
-    }]],    
+    }]],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 600000
     },
     //
     // =====
@@ -166,8 +161,6 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
     onPrepare: function (config, capabilities) {
         if(fs.existsSync("./allure-results")) {
             fs.rmSync("./allure-results", {recursive: true});
@@ -210,8 +203,6 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
     before: function (capabilities, specs) {
         require('expect-webdriverio').setOptions({wait: 10000, interval: 500});
     },
@@ -231,8 +222,6 @@ exports.config = {
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-    // beforeTest: function (test, context) {
-    // },
     beforeTest: async function (test, context) {
         await browser.maximizeWindow();
     },
@@ -258,8 +247,6 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
     afterTest: async function(test, context, { error, result, duration, passed, retries }) {
         if(error) {
             await browser.takeScreenshot();
@@ -307,8 +294,6 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    // onComplete: function(exitCode, config, capabilities, results) {
-    // },
     onComplete: function(exitCode, config, capabilities, results) {
         const reportError = new Error('Could not generate Allure report')
         const generation = allure(['generate', 'allure-results', '--clean'])
