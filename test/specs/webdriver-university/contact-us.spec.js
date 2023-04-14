@@ -16,7 +16,7 @@ describe('webdriveruniversity - contact us page', function() {  //"function()" i
         allureReporter.addDescription("Validate contact us page by submitting all data");
         allureReporter.addSeverity("critical");
 
-        ContactUsPage.submitForm("Bugs", "Bunny", "Bugs.Bunny@example.com", "Hi there I'm Bugs Bunny\nWhat's up dog!");
+        ContactUsPage.submitForm_UsingRandomData("Bugs", "Bunny");
 
         await expect(ContactUsPage.successfulSubmissionHeader).toHaveText('Thank You for your Message!');
 
