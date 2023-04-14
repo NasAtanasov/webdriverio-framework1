@@ -26,10 +26,16 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        // ToDo: define location for spec files here
-        './test/specs/**'
+    // ToDo: define location for spec files here
 
-
+    //'./test/specs/**/*.js'
+    //'./test/specs/**/*.spec.js'
+    './test/specs/**/*add-items-to-basket.spec.js'
+    //'./test/specs/**/*async-example.spec.js'
+    //"./test/specs/**/*contact-us.spec.js",
+    //'./test/specs/**/*locating-elements.spec.js'
+    //'./test/specs/**/*wait-commands.spec.js'
+    //'./test/specs/**/*advanced-element-interactions.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
