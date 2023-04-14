@@ -1,5 +1,6 @@
 import BasePage from "./base.page";
 import CategoryMenuComponent from "../automation-test-store/components/category-menu.comp";
+import TopNavBarComponent from "./components/header-nav.comp";
 
 class HomePage extends BasePage{
     open() {
