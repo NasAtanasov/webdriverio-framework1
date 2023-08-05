@@ -1,6 +1,5 @@
-import BasePage from "./base.page";
-import DataGenerator from "../../../utils/data-generator";
 import dataGenerator from "../../../utils/data-generator";
+import BasePage from "./base.page";
 
 class ContactUsPage extends BasePage {
     open()  {
