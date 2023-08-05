@@ -26,21 +26,35 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-    // ToDo: define location for spec files here
+        // ToDo: define location for spec files here
 
-    //'./test/specs/**/*.js'
-    //'./test/specs/**/*.spec.js'
-    './test/specs/**/*add-items-to-basket.spec.js'
-    //'./test/specs/**/*async-example.spec.js'
-    //"./test/specs/**/*contact-us.spec.js",
-    //'./test/specs/**/*locating-elements.spec.js'
-    //'./test/specs/**/*wait-commands.spec.js'
-    //'./test/specs/**/*advanced-element-interactions.spec.js'
+        //'./test/specs/**/*.js'
+        //'./test/specs/**/*.spec.js',
+        //'./test/specs/webdriver-university/*.spec.js'
+        //'./test/specs/**/*add-items-to-basket.spec.js'
+        //'./test/specs/**/*async-example.spec.js'
+        //"./test/specs/**/*contact-us.spec.js",
+        //'./test/specs/**/*locating-elements.spec.js'
+        //'./test/specs/**/*wait-commands.spec.js'
+        //'./test/specs/**/*advanced-element-interactions.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
-        // 'path/to/excluded/files'
+        // 'path/to/excluded/files',
+        // "./test/specs/**/*contact-us.spec.js"
     ],
+    suites: {
+        smoke: [
+            'test/specs/automation-test-store/add-items-to-basket.spec.js',
+            'test/specs/webdriver-university/locating-elements.spec.js',
+            'test/specs/webdriver-university/contact-us.spec.js'
+        ],
+        automationteststore: [
+            'test/specs/automation-test-store'
+
+        ]      
+
+    },
     //
     // ============
     // Capabilities
@@ -68,15 +82,38 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 5,
+        maxInstances: 2,
         //
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        acceptInsecureCerts: true,
+        "goog:chromeOptions": {
+            args: [
+                "--incognito"
+            ]
+        },
+        timeouts: {
+            "pageLoad": 30000
+        }
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-    }],
+    },
+    // {
+    //     maxInstances: 2,
+    //     browserName: 'firefox',
+    //     acceptInsecureCerts: true,
+    //     "moz:firefoxOptions": {
+    //         args: [
+    //             "-private"
+    //         ]
+    //     },
+    //     timeouts: {
+    //         "pageLoad": 30000
+    //     }
+    // }
+    
+    ],
     //
     // ===================
     // Test Configurations
@@ -124,7 +161,8 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: ['chromedriver', 'geckodriver'],
+    // services: ['selenium-standalone'],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -135,7 +173,7 @@ exports.config = {
     framework: 'mocha',
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    // specFileRetries: 1,
+    specFileRetries: 0,
     //
     // Delay in seconds between the spec file retry attempts
     // specFileRetriesDelay: 0,
