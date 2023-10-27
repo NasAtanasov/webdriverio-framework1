@@ -6,8 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "wdio": "wdio run wdio.conf.js",
-        "automation-test-store-tests": "npx wdio --spec test/specs/automation-test-store/*.spec.js",
-        "webdriver-university-tests": "npx wdio --spec test/specs/webdriver-university/*.spec.js",
+        "automation-test-store-tests": "npx wdio --suite automationteststore",
+        "webdriver-university-tests": "npx wdio --suite webdriver-university",
         "webdriver-university-tests-uat-env": "npx wdio config/wdio.uat.conf.js --spec test/specs/webdriver-university/contact-us.spec.js",
         "smoke-suite": "npx wdio --suite smoke"
     },

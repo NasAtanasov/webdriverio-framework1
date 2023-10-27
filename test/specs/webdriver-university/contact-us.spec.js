@@ -23,11 +23,10 @@ describe('webdriveruniversity - contact us page', function() {  //"function()" i
         // ContactUsPage.submitForm_UsingRandomData("Bugs", "Bunny");
         await console.log("\u001b[1;31m " + browser.options.baseUrl + "\u001b[0m");
         await console.log("\u001b[1;32m " + browser.options + "\u001b[0m");
-        console.log(browser.options);
+        await console.log(browser.options);
 
         await console.log("\u001b[1;33m " + browser.options.firstName + "\u001b[0m");
-        await browser.pause(12000);
-        ContactUsPage.submitForm_UsingRandomData(browser.options.firstName, "Bunny");
+        await ContactUsPage.submitForm_UsingRandomData("Bugs", "Bunny");
         
         await expect(ContactUsPage.successfulSubmissionHeader).toHaveText('Thank You for your Message!');
 

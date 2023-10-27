@@ -28,15 +28,15 @@ exports.config = {
     specs: [
         // ToDo: define location for spec files here
 
-        //'./test/specs/**/*.js'
-        //'./test/specs/**/*.spec.js',
-        //'./test/specs/webdriver-university/*.spec.js'
-        //'./test/specs/**/*add-items-to-basket.spec.js'
-        //'./test/specs/**/*async-example.spec.js'
-        //"./test/specs/**/*contact-us.spec.js",
-        //'./test/specs/**/*locating-elements.spec.js'
-        //'./test/specs/**/*wait-commands.spec.js'
-        //'./test/specs/**/*advanced-element-interactions.spec.js'
+        './test/specs/**/*.js',
+        './test/specs/**/*.spec.js',
+        './test/specs/webdriver-university/*.spec.js',
+        './test/specs/**/add-items-to-basket.spec.js',
+        './test/specs/**/async-example.spec.js',
+        './test/specs/**/contact-us.spec.js',
+        './test/specs/**/locating-elements.spec.js',
+        './test/specs/**/wait-commands.spec.js',
+        './test/specs/**/advanced-element-interactions.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -50,9 +50,13 @@ exports.config = {
             'test/specs/webdriver-university/contact-us.spec.js'
         ],
         automationteststore: [
-            'test/specs/automation-test-store'
+            'test/specs/automation-test-store/**'
 
-        ]      
+        ],
+        'webdriver-university': [
+            'test/specs/webdriver-university/**'
+
+        ]
 
     },
     //
@@ -359,7 +363,7 @@ exports.config = {
         return new Promise((resolve, reject) => {
             const generationTimeout = setTimeout(
                 () => reject(reportError),
-                30000)
+                60000)
 
             generation.on('exit', function(exitCode) {
                 clearTimeout(generationTimeout)
