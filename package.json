@@ -48,7 +48,7 @@
         "async-exit-hook": "^2.0.1",
         "asynckit": "^0.4.0",
         "available-typed-arrays": "^1.0.5",
-        "axios": "^1.2.2",
+        "axios": "^1.6.0",
         "balanced-match": "^2.0.0",
         "base64-js": "^1.5.1",
         "binary-extensions": "^2.2.0",
